@@ -24,29 +24,24 @@ public class R_136_2D_Arrays_Diagonal_Difference {
 				{ scan.nextInt(), scan.nextInt(), scan.nextInt() },
 				{ scan.nextInt(), scan.nextInt(), scan.nextInt() } };
 		int result = 0;
-		int leftToRightDiagonal=0;
-		int rightToLeftDiagonal=0;
-	/*	
-		for(int i=0;i<3;i++) {
-			for(int j=0;j<3;j++) {
-				if(i==j) {
-					leftToRightDiagonal=leftToRightDiagonal+matrix[i][j];
-					
-				}
-			
+		int leftToRightDiagonal = 0;
+		int rightToLeftDiagonal = 0;
+
+		for (int i = 0; i < matrix.length - 2; i++) {
+			for (int j = 0; j < matrix.length - 2; j++) {
+
+				leftToRightDiagonal = matrix[i][j] + matrix[i + 1][j + 1] + matrix[i + 2][j + 2];
+				rightToLeftDiagonal = matrix[i][j + 2] + matrix[i + 1][j + 1] + matrix[i + 2][j];
+
 			}
+
 		}
-*/
-		
-		leftToRightDiagonal=matrix[0][0]+matrix[1][1]+matrix[2][2];
-		rightToLeftDiagonal=matrix[0][2]+matrix[1][1]+matrix[2][0];
-		
-		result=rightToLeftDiagonal-leftToRightDiagonal;
-		
-		System.out.println(leftToRightDiagonal);
-		System.out.println(rightToLeftDiagonal);
+
+		result = rightToLeftDiagonal - leftToRightDiagonal;
+
 		// FINAL PRINT
 		System.out.println(Math.abs(result));
+		scan.close();
 	}
 
 }
